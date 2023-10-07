@@ -1,0 +1,12 @@
+{
+  "name": "fashion-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch-sass": "node-sass -o src/css -w src/scss"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

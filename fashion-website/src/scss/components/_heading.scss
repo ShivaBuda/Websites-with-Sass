@@ -1,0 +1,24 @@
+.logo{
+     font-size: 6rem;
+     margin: 2rem;
+
+     @include responsive(phone-land){
+          grid-column: 1/-1;
+          grid-row: 1/1;
+          text-align: center;
+     }
+
+}
+
+.heading{
+     grid-column: 1/-1;
+     grid-row: 2/3;
+     
+     &_text{
+          font-size: size(xl) *2;
+          font-family: $great_vibes;
+          letter-spacing: .5rem;
+          font-weight: lighter;
+          text-align: center;
+     }
+}

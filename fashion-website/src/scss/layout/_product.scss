@@ -1,0 +1,115 @@
+.products{
+     grid-column: 1/-1;
+     grid-row: 3/4;
+     margin-bottom: 6rem;
+
+     &_heading{
+          margin: 5rem auto;
+
+          h1{
+               text-align: center;
+               font-size: size(lg) + 2;
+               color: color(primary);
+               font-weight: 300;
+
+          }
+     }
+
+     &_wrapper{
+          @include flexPosition;
+
+          @include responsive(phone-land){
+               flex-wrap: wrap;
+               padding: 2rem;
+          }
+     }
+};
+
+.product{
+     position: relative;
+     text-align: center;
+     border-radius: .1rem;
+     padding: 2rem;
+
+     @include responsive(phone-port){
+          padding: 1rem;
+     }
+     
+     &:hover .product_description{
+          opacity: 1;
+          visibility: visible;
+     }
+
+     &:hover .product_img{
+          opacity: .5;
+     }
+
+     &_img{
+          width: 100%; 
+          transition: opacity .3s;
+
+
+     }
+     
+     &_description{
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: transparentize($color: (color(secondary)), $amount: .4);
+          // background-color: transparentize(color(secondary), .4)
+          padding: 2rem;
+          border-radius: .5rem;
+          color:color(primary);
+          text-align: center;
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity .3s;
+
+          @include responsive(tab-port){
+               padding: 1rem;
+          }
+
+          &_heading{
+               font-size:size(xl);
+
+               @include responsive(tab-port){
+                    font-size: size(md);
+               }
+          }
+          &_price{
+               font-size: size(lg);
+               margin: 1rem 0;
+               font-weight: 300;
+
+               @include responsive(tab-port){
+                    font-size: size(md);
+               }
+               span{
+                    font-weight: 600;
+               }
+          }
+
+          &_btn{
+               color: color(quaternary);
+               text-decoration: none;
+               font-size: size(xs);
+               padding: .5rem 1rem;
+               background-color: lighten(color(primary), 20%);
+               border: .1rem solid color(quaternary);
+               border-radius: .2rem;
+               display: block;
+               margin-top: .6rem;
+
+               @include responsive(tab-port){
+                    padding: .2rem .4rem;
+               }
+
+          }
+          
+     }
+}
+
+.product_btn{
+     @include flexPosition;
+}

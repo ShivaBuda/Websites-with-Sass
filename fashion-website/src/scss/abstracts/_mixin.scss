@@ -1,0 +1,83 @@
+@mixin navigation {
+    &_list {
+        display: flex;
+        justify-content: space-around;
+        list-style: none;
+        align-items: center;
+    }
+
+    &_link {
+        text-decoration: none;
+        color: color(primary);
+        font-size: size(sm);
+
+        &:hover {
+            color: lighten(color(primary), 40%);
+        }
+    }
+}
+
+@mixin flexPosition($justCont: center, $alignItem: center) {
+    display: flex;
+    justify-content: $justCont;
+    align-items: $alignItem;
+}
+
+@mixin footerList {
+    &_heading {
+        font-size: size(lg);
+        color: color(primary);
+    }
+    &_item {
+        list-style: none;
+        margin: 1rem 0;
+    }
+    &_link {
+        font-size: size(xs);
+        text-decoration: none;
+        color: lighten(color(primary), 15%);
+        transition: color 0.3s;
+
+        &:hover {
+            color: lighten(color(primary), 35%);
+        }
+    }
+}
+
+/*
+phone-portrait:34.37em --> 550px
+phone-land: 43.75em --> 700px
+tab-portrait : 56.25em --> 900px
+tab-landscape: 75em --> 1200px
+big-screen : 112.5em --1800px
+ */
+
+@mixin responsive($breakpoint) {
+    @if ($breakpoint == phone-land) {
+        @media (max-width: 34.75em) {
+            @content;
+        }
+    };
+
+    @if ($breakpoint == phone-port) {
+        @media (max-width: 43.75em) {
+            @content;
+        }
+    };
+
+    @if ($breakpoint == tab-port) {
+        @media (max-width: 56.25em) {
+            @content;
+        }
+    };
+    @if ($breakpoint == tab-land) {
+        @media (max-width: 75em) {
+            @content;
+        }
+    };
+    @if ($breakpoint == large-screen) {
+        @media (min-width: 112.5em) {
+            @content;
+        }
+    }
+}

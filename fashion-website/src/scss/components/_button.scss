@@ -1,0 +1,67 @@
+.btn{
+     width: 16rem;
+     height: 4rem;
+     text-decoration: none;
+     @include flexPosition(space-around);
+     position: relative;
+     // border: 2px solid green;
+
+     &:hover .btn_bg{
+          width: 18rem;
+     }
+
+     &:hover .btn_text{
+          color: color(secondary)
+     }
+
+     &:hover .arrow_line_1{
+          width: 2rem;
+     }
+
+     &:hover .arrow{
+          transform: translateX(2rem);
+     }
+
+     &_bg{
+          width: 4rem;
+          height: 4rem;
+          background-color: color(primary);
+          border-radius: 5rem;
+          position: absolute;
+          left: 0;
+          transition: width .3s;
+     }
+
+     &_text{
+          font-size: size(xs);
+          text-transform: uppercase;
+          color: color(primary);
+          z-index: 3;
+     }
+
+     .arrow{
+          @include flexPosition;
+          transition: transform .3s;
+          
+          &_line{
+               height: .2rem;
+               background-color: color(secondary);
+               position: absolute;
+               transform-origin: right;
+          }
+
+          &_line_1{
+               width: 0rem;
+               transform: translate(-0.7rem);
+               transform: width .2s;
+          }
+          &_line_2{
+               width: 1rem;
+               transform: rotate(45deg);
+          }
+          &_line_3{
+               width: 1rem;
+               transform: rotateZ(-45deg);
+          }
+     }
+}

@@ -1,0 +1,104 @@
+.slideshow{
+     grid-column: 1/-1;
+     grid-row: 2/3;
+     position: relative;
+     width: 100%;
+     height: 100vh;
+
+     @include responsive(tab-land){
+          height: 80vh;
+     }
+     @include responsive(tab-port){
+          height: 60vh;
+     }
+     &_slide{
+          position: absolute;
+          width: inherit;
+          height: inherit;
+          top:0;
+          left: 0;
+          visibility: hidden;
+          opacity: 0;
+          animation: slideshow_animation 20s linear infinite;
+
+          img{
+               width: inherit;
+               height: inherit;
+               object-fit: cover;
+               object-position: center;
+          }
+          
+     }
+     &_content{
+          position: absolute;
+          bottom: 6rem;
+          left: 6rem;
+          padding: 4.8rem;
+          max-width: 32rem;
+          background-color: rgba(color(secondary), 0.9);
+          border-radius: .1rem;
+
+          @include responsive(tab-port){
+               padding: 2.4rem;
+          }
+
+          h2{
+               font-size: size(xl) + 1.2;
+               color: color(primary);
+          }
+
+          p{
+               font-size: size(sm);
+               margin: 1rem auto;
+          }
+     }
+}
+
+.slideshow_slide:nth-child(1){
+     animation-delay: 0s;
+}
+.slideshow_slide:nth-child(2){
+     animation-delay: 4s;
+}
+.slideshow_slide:nth-child(3){
+     animation-delay: 8s;
+}
+.slideshow_slide:nth-child(4){
+     animation-delay: 12s;
+}
+.slideshow_slide:nth-child(5){
+     animation-delay: 16s;
+};
+
+// $animation_list : 1 0s, 2 4s, 3 8s, 4 12s, 5 16s;
+
+// @each $item in $animation_list {
+//      .slideshow_slide:nth-child(#{nth($item, 1)}) .slideshow_slide{
+//           animation-delay: nth($item, 2)
+//      }
+// };
+
+@keyframes slideshow_animation {
+     0%{
+          visibility: hidden;
+          opacity: 0;
+     };
+
+     2%{
+          visibility: visible;
+          opacity: 1;
+     };
+     18%{
+          visibility: visible;
+          opacity: 1;
+     };
+     20%{
+          visibility: hidden;
+          opacity: 0;
+     };
+     100%{
+          visibility: hidden;
+          opacity: 0;
+     }
+     
+}

@@ -1,0 +1,27 @@
+$great_vibes:"Great Vibes", cursive;
+$dancing_script: "Dancing Script", cursive;
+
+$colors: (
+     primary: #333,
+     secondary: #ffe,
+     tertiary: #f2f0f1,
+     quaternary: #f5b149,
+);
+
+@function color($color_name){
+     @return map-get($map: $colors, $key: $color_name )
+};
+
+
+$font_size:(
+     xl: 3.2rem,
+     lg: 2.8rem,
+     md: 2rem,
+     sm: 1.8rem,
+     xs: 1.6rem,
+     xxs: 1.2rem,
+);
+
+@function size($size){
+     @return map-get($map: $font_size, $key:$size )
+};
